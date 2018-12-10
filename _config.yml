@@ -1,7 +1,7 @@
 # Site
 title:              Jamie Harnum
 bio:                Computer Engineering Tech student and coffee slinger in Ottawa, ON
-description:        "TBD"
+description:        "It's all about the process. Learning data science one project at a time."
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/logo.png'
@@ -37,12 +37,12 @@ sass:
   #ad-client:
   #ad-slot:
 #bing-verify:
-#email:
+email:              j.aharnum@gmail.com
 #twitter:            username
 #facebook:           username
 github-url:         jaharnum
 #stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
-linkedin:          jaharnum
+linkedin:          jharnum
 #xing:              username
 #instagram:          username
 #lastfm:            username
