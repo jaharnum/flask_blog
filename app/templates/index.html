@@ -1,0 +1,11 @@
+<!-- Main page template -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Hi, {{ current_user.username }} :)</h2>
+
+    {% for post in posts %}
+    <div><p><b>{{ post.author.username }} says: </b> {{ post.body }}</p></div>
+    {% endfor %}
+{% endblock %}
