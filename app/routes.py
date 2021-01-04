@@ -9,6 +9,10 @@ from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from app.models import User
 
+'''
+@login_required - user will be redirected to login screen if not logged in
+'''
+
 @app.route('/')
 @app.route('/index')
 @login_required
@@ -31,6 +35,7 @@ def index():
 def login():
 
     if current_user.is_authenticated:
+        # we are already logged in, return to homepage
         return redirect(url_for('index'))
 
     form = LoginForm()
@@ -40,11 +45,11 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
 
         if user is None:
-            flash('Invalid username')
+            flash('This username does not exist')
             return redirect(url_for('login'))
         
         if not user.check_password(password=form.password.data):
-            flash('Invalid password')
+            flash('This password is incorrect')
             return redirect(url_for('login'))
         
         login_user(user, remember=form.remember_me.data)
@@ -53,7 +58,8 @@ def login():
         # if netloc isn't this app its suspicious to redirect there after login
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
-            
+
+        # 'next_page' could be any view with @login_required            
         return redirect(next_page)
 
     return render_template('login.html', title='crashtestblog - login', form=form)
@@ -85,3 +91,14 @@ def register():
         return redirect(url_for('login'))
 
     return render_template('register.html', title='register', form=form)
+
+@app.route('/<username>')
+@login_required
+def user(username):
+    # raises a 404 for you if user is not found
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = [
+        {'author': user, 'body': 'Test post 1'},
+        {'author': user, 'body': 'test post 2'}
+    ]
+    return render_template('user.html', user=user, posts=posts)

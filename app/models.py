@@ -33,9 +33,11 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    role = db.Column(db.String(64))
+    role = db.Column(db.String(64))  # TODO, NOT IMPLEMENTED
 
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+
+    about_me = db.Column(db.String(512))
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -49,7 +51,7 @@ class User(UserMixin, db.Model):
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(140))
+    title = db.Column(db.String(140))  # TODO, NOT IMPLEMENTED
     body = db.Column(db.String(1000))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

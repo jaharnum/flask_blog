@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table>
+        <tr valign="top">
+            <td><h2>user: {{ user.username }}</h2></td>
+            <td>
+                {% if user.about_me %}
+                    <p>{{ user.about_me }}</p>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+    
+    {% for post in posts %}
+        {% include '_post.html' %}
+    {% endfor %}
+{% endblock %}
