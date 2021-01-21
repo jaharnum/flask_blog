@@ -12,7 +12,4 @@ python-dotenv = "*"
 flask-wtf = "*"
 flask-migrate = "*"
 flask-login = "*"
-py-dotenv = "*"
-
-[requires]
-python_version = "3.8"
+email-validator = "*"

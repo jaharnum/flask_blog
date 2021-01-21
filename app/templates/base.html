@@ -9,10 +9,10 @@
         {% endif %}
     </head>
     <body>
-        <div>
+        <div id='navbar'>
             <!-- url_for - endpoint / name of view function, not URL based in case it changes -->
-            crashtestblog | 
-            <a href="{{ url_for('index') }}">home</a> | 
+            crashtestblog |
+            <a href="{{ url_for('index') }}">home</a> |
             {% if current_user.is_anonymous %}
             <a href="{{ url_for('login') }}">login</a>
             {% else %}

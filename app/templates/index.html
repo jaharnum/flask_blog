@@ -1,11 +1,13 @@
 <!-- Main page template -->
-
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Hi, {{ current_user.username }} :)</h2>
-
+<h2>crashtestblog</h2>
+<h3>Hi, {{ current_user.username }} :)</h3>
+    {% if form %}
+        {% include '_newpost.html' %}
+    {% endif %}
     {% for post in posts %}
-    <div><p><b>{{ post.author.username }} says: </b> {{ post.body }}</p></div>
+        {% include '_post.html' %}
     {% endfor %}
 {% endblock %}

@@ -41,12 +41,16 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
-    
+
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
-    
+
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+    def get_posts(self):
+        posts = Post.query.filter_by(user_id=self.id)
+        return posts.order_by(Post.timestamp.desc())
 
 
 class Post(db.Model):

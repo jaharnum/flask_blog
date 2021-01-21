@@ -3,15 +3,26 @@
 {% block content %}
     <table>
         <tr valign="top">
-            <td><h2>user: {{ user.username }}</h2></td>
-            <td>
-                {% if user.about_me %}
-                    <p>{{ user.about_me }}</p>
-                {% endif %}
+          <td>
+            <h2>user: {{ user.username }}</h2>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {% if user.about_me %}
+                <p>{{ user.about_me }}</p>
+            {% endif %}
             </td>
+        <tr>
+          <td></td>
+          <td>
+              {% if user == current_user %}
+              <p><a href="{{ url_for('edit_profile') }}">edit profile</a></p>
+              {% endif %}
+          </td>
         </tr>
     </table>
-    
+
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}

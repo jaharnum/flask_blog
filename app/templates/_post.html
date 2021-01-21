@@ -2,7 +2,8 @@
 
 <table>
     <tr valign="top">
-        <td>{{ post.author.username }} says</td>
+        <th>{{ post.title }}</th>
+        <td><a href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a> says</td>
         <td>{{ post.body }}</td>
     </tr>
 </table>
