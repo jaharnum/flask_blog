@@ -1,20 +1,26 @@
-<div class="container w-60">
+<div class="container">
 <nav role="navigation" aria-label="pagination">
-  <div class="container">
+  <div class="container container-fluid">
         <ul class="pager">
           {% if prev_url %}
+          <div class="container col-sm-2">
             <li class="previous">
                 <a href="{{ prev_url }}">
                     <span aria-hidden="true">&larr;</span> Newer posts
                 </a>
             </li>
+          </div>
           {% endif %}
           {% if next_url %}
+          <div class="container col-sm-4">
+            <div class="container">
             <li class="next">
                 <a href="{{ next_url }}">
                     Older posts <span aria-hidden="true">&rarr;</span>
                 </a>
             </li>
+            </div>
+          </div>
           {% endif %}
         </ul>
   </div>

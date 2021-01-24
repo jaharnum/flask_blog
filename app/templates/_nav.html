@@ -1,26 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f6f6fe;">
-  <div class="container">
-  <a class="navbar-brand" href="#">crash.garden</a>
-    <div class="navbar-nav">
-      <!-- TODO figure out how to dynamically set 'active' link -->
-      <div class="nav-item btn btn-link">
-      <a class="nav-link align-bottom" href="{{ url_for('index') }}">home</a>
+<nav class="navbar" style="background-color: #f6f6fe;">
+  <a class="navbar-brand col-sm-2" href="#">crash.garden</a>
+    <div class="navbar-nav col-sm-8">
+
+      <div class="nav-item col-sm-2">
+        <a class="nav-link align-bottom mx-auto" href="{{ url_for('index') }}">home</a>
       </div>
+
       {% if current_user.is_anonymous %}
-      <div class="nav-item btn btn-link">
-      <a class="nav-link align-bottom" href="{{ url_for('login') }}">login</a>
+      <div class="nav-item col-sm-2">
+        <a class="nav-link align-bottom mx-auto" href="{{ url_for('login') }}">login</a>
       </div>
+
       {% else %}
-      <div class="nav-item btn btn-link">
-      <a class="nav-link align-bottom" href="{{ url_for('new') }}">new</a>
+
+      <div class="nav-item col-sm-2">
+        <a class="nav-link align-bottom mx-auto" href="{{ url_for('new') }}">new</a>
       </div>
-      <div class="nav-item btn btn-link">
-      <a class="nav-link align-bottom" href="{{ url_for('user', username=current_user.username) }}">profile</a>
+      <div class="nav-item col-sm-2">
+        <a class="nav-link align-bottom mx-auto" href="{{ url_for('user', username=current_user.username) }}">profile</a>
       </div>
-      <div class="nav-item btn btn-link">
-      <a class="nav-link align-bottom" href="{{ url_for('logout') }}">logout</a>
+      <div class="nav-item col-sm-2">
+        <a class="nav-link align-bottom mx-auto" href="{{ url_for('logout') }}">logout</a>
       </div>
+
       {% endif %}
-  </div>
+    </div>
   </div>
 </nav>
+

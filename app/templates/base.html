@@ -16,14 +16,14 @@
 
 {% block content %}
   <div class="container">
-    <div id="main" class="w-60" style="background-color: #f6f6fe; margin: 50px;">
-      {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages() %}
       {% if messages %}
           {% for message in messages %}
           <div class="alert alert-info" role="alert">{{ message }}</div>
           {% endfor %}
       {% endif %}
       {% endwith %}
+    <div id="main" class="w-66 mx-auto" style="background-color: #f6f6fe; margin: 50px;">
 
       {# application content needs to be provided in the app_content block #}
       {% block app_content %}{% endblock %}

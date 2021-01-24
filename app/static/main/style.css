@@ -1,13 +1,14 @@
 body {
   background-color: #1b1a12;
   background-image: url('gardenwall_annie-spratt-unsplash.jpg') !important;
-  background-size: auto;
+  height: 750px;
+  background-position: center; 
   background-repeat: repeat-y;
-
+  background-size: cover; /* Resize the background image to cover the entire container */
 };
 
 a {
-  color: #a6383e;
+  color: #a6383e !important;
 }
 
 .navbar {
@@ -15,6 +16,7 @@ a {
   align-content: center;
 }
 
+/*
 p {
   font-family: ;
   font-size: ;
@@ -26,3 +28,4 @@ h2 {
   font-size: ;
   color: ;
 };
+*/
