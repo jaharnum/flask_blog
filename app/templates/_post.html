@@ -1,16 +1,17 @@
 <!-- Post sub-template -->
 
 <div class="container">
-<table class="table w-60">
-    <tr>
-        <td>
-            <h4> {{ post.title }}</h4>
-            <a href="{{ url_for('user', username=post.author.username) }}">
-                {{ post.author.username }}
-            </a>
-            <br>
-            {{ post.body }}
-        </td>
-    </tr>
-</table>
+<div class="card" style="width: 75%; border">
+    <h5 class="card-header"><strong>{{ post.title }}</strong></h5>
+
+    <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted">
+      <a href="{{ url_for('user', username=post.author.username) }}">
+          {{ post.author.username }}
+      </a>
+    </h6>
+    <p class="card-text">{{ post.body }}</p>
+    <a href="#" class="card-link">read more</a>
+  </div>
+</div>
 </div>

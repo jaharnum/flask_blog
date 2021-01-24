@@ -2,17 +2,21 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-<div class="container">
-<div class="container">
+<div class="container w-80">
+<div class="container container-fluid">
     <h2>crash.garden</h2>
 </div>
 
-<div class="container">
+<div class="container container-fluid">
     {% for post in posts %}
+    <div class="container container-fluid">
         {% include '_post.html' %}
+    </div>
     {% endfor %}
 
+    <div class="container container-fluid">
     {% include '_pagination.html' %}
+    </div>
 </div>
 </div>
 {% endblock %}

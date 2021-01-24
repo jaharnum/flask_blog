@@ -1,13 +1,18 @@
 body {
   background-color: #1b1a12;
   background-image: url('gardenwall_annie-spratt-unsplash.jpg') !important;
-  background-size: cover;
+  background-size: auto;
   background-repeat: repeat-y;
 
 };
 
+a {
+  color: #a6383e;
+}
+
 .navbar {
-  background-color: #f6f6fe
+  background-color: #f6f6fe;
+  align-content: center;
 }
 
 p {

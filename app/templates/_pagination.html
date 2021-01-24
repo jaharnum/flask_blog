@@ -1,14 +1,23 @@
-<nav aria-label="...">
+<div class="container w-60">
+<nav role="navigation" aria-label="pagination">
+  <div class="container">
         <ul class="pager">
-            <li class="previous{% if not prev_url %} disabled{% endif %}">
-                <a href="{{ prev_url or '#' }}">
+          {% if prev_url %}
+            <li class="previous">
+                <a href="{{ prev_url }}">
                     <span aria-hidden="true">&larr;</span> Newer posts
                 </a>
             </li>
-            <li class="next{% if not next_url %} disabled{% endif %}">
-                <a href="{{ next_url or '#' }}">
+          {% endif %}
+          {% if next_url %}
+            <li class="next">
+                <a href="{{ next_url }}">
                     Older posts <span aria-hidden="true">&rarr;</span>
                 </a>
             </li>
+          {% endif %}
         </ul>
+  </div>
 </nav>
+</div>
+<div class="container w-100"></div>
