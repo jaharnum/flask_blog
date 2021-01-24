@@ -17,14 +17,6 @@ from app.models import User, Post
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
-    form = PostForm()
-
-    if form.validate_on_submit():
-        post = Post(title=form.title.data, body=form.post.data, author=current_user)
-        db.session.add(post)
-        db.session.commit()
-        flash('post added successfully')
-        return redirect(url_for('index'))
 
     # track pages
     page = request.args.get('page', 1, type=int)
@@ -35,8 +27,21 @@ def index():
     next_url = url_for('index', page=posts.next_num) if posts.has_next else None
     prev_url = url_for('index', page=posts.prev_num) if posts.has_prev else None
     return render_template(
-            'index.html', form=form, posts=posts.items, next_url=next_url, prev_url=prev_url)
+            'index.html', posts=posts.items, next_url=next_url, prev_url=prev_url)
 
+@app.route('/new', methods=['GET', 'POST'])
+@login_required
+def new():
+    form = PostForm()
+
+    if form.validate_on_submit():
+        post = Post(title=form.title.data, body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('post added successfully')
+        return redirect(url_for('index'))
+
+    return render_template('new.html', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

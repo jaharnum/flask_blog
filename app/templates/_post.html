@@ -1,9 +1,16 @@
 <!-- Post sub-template -->
 
-<table>
-    <tr valign="top">
-        <th>{{ post.title }}</th>
-        <td><a href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a> says</td>
-        <td>{{ post.body }}</td>
+<div class="container">
+<table class="table w-60">
+    <tr>
+        <td>
+            <h4> {{ post.title }}</h4>
+            <a href="{{ url_for('user', username=post.author.username) }}">
+                {{ post.author.username }}
+            </a>
+            <br>
+            {{ post.body }}
+        </td>
     </tr>
 </table>
+</div>

@@ -1,0 +1,10 @@
+flask
+uberspace
+bulma css (if i end up using this lol)
+unsplash users
+
+ideal is to have this editable
+tech stuff unlikely to change but who knows
+
+expandable list in sections?
+tech, images, research?
